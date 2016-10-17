@@ -1,6 +1,7 @@
 
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+<%= image_tag @article.image.url(:medium) %>
 <%= link_to "edit", edit_article_path(@article) %>
 <%= link_to "delete", article_path(@article),
             data: {confirm: "Really delete the article?"} ,
