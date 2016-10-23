@@ -1,21 +1,23 @@
 
 <h1><%= @article.title %></h1>
-<p><%= @article.body %></p>
+<p><%= @article.body.html_safe %></p>
 <%= image_tag @article.image.url(:medium) %>
-<%= link_to "edit", edit_article_path(@article) %>
-<%= link_to "delete", article_path(@article),
+<%#= link_to "edit", edit_article_path(@article) %>
+<%#= link_to "delete", article_path(@article),
             data: {confirm: "Really delete the article?"} ,
             method: :delete %>
 
-<%= link_to "<< Back to Articles List", articles_path %>
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: 'comments/form' %>
-<h3>Comments</h3>
-<%= render partial: 'articles/comment', collection: @article.comments %>
-
+<%#= link_to "<< Back to Articles List", articles_path %>
 <p>
   Tags:
   <% @article.tags.each do |tag| %>
       <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+<%if @article.comments.size > 0%>
+<h2 class="page-header">Comments</h2>
+<section class="comment-list">
+<%= render partial: 'articles/comment', collection: @article.comments %>
+</section>
+<%end%>
+<%= render partial: 'comments/form' %>

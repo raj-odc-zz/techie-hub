@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017155709) do
+ActiveRecord::Schema.define(version: 20161023230852) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -23,12 +23,41 @@ ActiveRecord::Schema.define(version: 20161017155709) do
     t.datetime "image_updated_at"
   end
 
+  create_table "authors", force: :cascade do |t|
+    t.string   "email",            null: false
+    t.string   "username"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["email"], name: "index_authors_on_email", unique: true
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string   "author_name"
     t.text     "body"
     t.integer  "article_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "parent_id",   default: 0
+    t.boolean  "is_approve",  default: false
+    t.boolean  "is_active",   default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
   end
 

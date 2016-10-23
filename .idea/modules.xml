@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/techie-words.iml" filepath="$PROJECT_DIR$/.idea/techie-words.iml" />
+      <module fileurl="file://$USER_HOME$/workspace/techie-hub/.idea/techie-words.iml" filepath="$USER_HOME$/workspace/techie-hub/.idea/techie-words.iml" />
     </modules>
   </component>
 </project>

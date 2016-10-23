@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TechieWords</title>
+    <title>TechieHub</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,25 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div id="container">
+    <div id="content">
+      <%= render 'shared/header' %>
+      <%= render 'shared/alerts' %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+      <%= yield %>
+            </div>
+          <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
+          <%= render 'shared/sidebar' %>
+        </div>
+        </div>
+      <%#= render 'shared/footer' %>
+      <hr>
+
+    </div>
+  </div>
   </body>
+
 </html>
