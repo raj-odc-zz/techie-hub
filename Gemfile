@@ -50,4 +50,5 @@ gem "paperclip"
 gem 'sorcery'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
-
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

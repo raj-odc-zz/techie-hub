@@ -1,4 +1,7 @@
+require 'elasticsearch/model'
 class Article < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
@@ -19,3 +22,4 @@ class Article < ApplicationRecord
     self.tags = new_or_found_tags
   end
 end
+Article.import force: true
