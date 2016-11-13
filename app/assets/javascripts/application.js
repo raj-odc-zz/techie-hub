@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .
+
+
+$(document).ready(function(){
+  $('#example').selectivity({
+    items: ['Amsterdam', 'Antwerp'],
+    multiple: true,
+    placeholder: 'Type to search a city'
+  });
+})

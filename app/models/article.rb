@@ -22,4 +22,5 @@ class Article < ApplicationRecord
     self.tags = new_or_found_tags
   end
 end
-Article.import force: true
+
+# Article.import force: true
