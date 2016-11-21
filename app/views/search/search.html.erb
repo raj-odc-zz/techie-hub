@@ -1,19 +1,23 @@
-<h1>Articles Search</h1>
 
-<%= form_for search_path, method: :get do |f| %>
-  <p>
-    <%= f.label "Search for" %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Go", name: nil %>
-  </p>
+
+<% @articles.each do |article| %>
+    <h1 class="page-header">
+      <%= article.title%>
+      <small>Secondary Text</small>
+    </h1>
+
+    <!-- First Blog Post -->
+    <h2>
+      <a href="#">Blog Post Title</a>
+    </h2>
+    <p class="lead">
+      by <a href="index.php">Start Bootstrap</a>
+    </p>
+    <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+    <hr>
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+    <hr>
+    <p><%= article.body%></p>
+    <a class="btn btn-primary" href="/articles/<%=article.id%>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <hr>
 <% end %>
-
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <h3>
-        <%= link_to article.title, controller: "articles", action: "show", id: article._id%>
-      </h3>
-    </li>
-  <% end %>
-</ul>

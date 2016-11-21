@@ -4,8 +4,8 @@ class SearchController < ApplicationController
     if params[:q].nil?
       @articles = []
     else
-      @articles = Article.search params[:q]
+      @articles = Article.search(params[:q]).records
     end
-	redirect_to search_path
+	#redirect_to search_path
   end
 end
