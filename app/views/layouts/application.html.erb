@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -15,10 +16,9 @@
       <%= render 'shared/alerts' %>
       <div class="container">
         <div class="row">
-          <div id="example" class="selectivity-input example-input" tabindex="0"><div class="selectivity-multiple-input-container"><input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" class="selectivity-multiple-input" size="23" placeholder="Type to search a city"><div class="selectivity-clearfix"></div></div></div>
           <div class="col-md-8">
-      <%= yield %>
-            </div>
+            <%= yield %>
+          </div>
           <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
           <%= render 'shared/sidebar' %>

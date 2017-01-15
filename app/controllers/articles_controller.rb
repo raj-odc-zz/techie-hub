@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+  autocomplete :tag, :name
   def index
     @articles = Article.all
   end

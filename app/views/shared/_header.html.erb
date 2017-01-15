@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Techie Hub</a>
+    <a class="navbar-brand" href="/">Techie Hub</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,24 +28,19 @@
         </ul>
       </li>
     </ul>
-    <div class="col-sm-3 col-md-3">
-        <div class="input-group">
-          <%= form_tag search_path, method: :get do %>
-		<%= text_field_tag :q, params[:q], class: "form-control" %>
-         <%= submit_tag "Go", name: nil %>
-		<!--<div class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-        </div>-->
-        <%end%>
+    <div class="col-sm-6 col-md-6">
+        <div class="input-group" style="width:100%;padding-top: 10px;">
+        <%= form_tag search_path, method: :get, remote: true do %>
+		  <%= text_field_tag :q, params[:q], class: "form-control", placeholder: 'Search Tutorial' %>
+		<%end%>
         </div>
     </div>
     <ul class="nav navbar-nav navbar-right">
 
       <% if logged_in? %>
-      <li><%= link_to "Create a New Article", new_article_path, class: "new_article" %></li>
-      <li><a href="#"> Welcome <%="#{current_user.email}"%></a></li>
+      <li><%= link_to "Write Article", new_article_path, class: "new_article" %></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%="#{current_user.email}"%> <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Sign Out", logout_path %></li>
             </ul>

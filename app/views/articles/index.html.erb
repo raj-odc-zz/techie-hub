@@ -10,9 +10,12 @@
 <h2>
   <a href="#">Blog Post Title</a>
 </h2>
-<p class="lead">
-  by <a href="index.php">Start Bootstrap</a>
-</p>
+    <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    <ul class="tags">
+      <li><a href="#" class="tag">HTML</a></li>
+      <li><a href="#" class="tag">CSS</a></li>
+      <li><a href="#" class="tag">JavaScript</a></li>
+    </ul>
 <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
 <hr>
 <img class="img-responsive" src="http://placehold.it/900x300" alt="">

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   resources :articles do
     resources :comments
+    get :autocomplete_tag_name, :on => :collection
   end
   resources :tags
   resources :authors

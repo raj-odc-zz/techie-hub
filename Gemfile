@@ -52,3 +52,6 @@ gem 'sorcery'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'rails3-jquery-autocomplete'
+gem "jquery-ui-rails"
